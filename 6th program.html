@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Personal Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: Personal Details Form</h2>
+    <pre>
+        <code>
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class PersonalDetailsFrame {
+    public static void main(String[] args) {
+        // Create the JFrame (main window)
+        JFrame frame = new JFrame("Personal Details");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+        frame.setLayout(new GridLayout(5, 2, 10, 10)); // 5 rows, 2 columns, with spacing
+
+        // Create labels for the text fields
+        JLabel nameLabel = new JLabel("Name:");
+        JLabel streetLabel = new JLabel("Street:");
+        JLabel cityLabel = new JLabel("City:");
+        JLabel pinCodeLabel = new JLabel("Pin Code:");
+
+        // Create text fields
+        JTextField nameField = new JTextField();
+        JTextField streetField = new JTextField();
+        JTextField cityField = new JTextField();
+        JTextField pinCodeField = new JTextField();
+
+        // Create the "My Details" button
+        JButton myDetailsButton = new JButton("My Details");
+
+        // Add an ActionListener to the button
+        myDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Set sample values when the button is clicked
+                nameField.setText("John Doe");
+                streetField.setText("123 Elm Street");
+                cityField.setText("Springfield");
+                pinCodeField.setText("12345");
+            }
+        });
+
+        // Add components to the frame
+        frame.add(nameLabel);
+        frame.add(nameField);
+        frame.add(streetLabel);
+        frame.add(streetField);
+        frame.add(cityLabel);
+        frame.add(cityField);
+        frame.add(pinCodeLabel);
+        frame.add(pinCodeField);
+        frame.add(myDetailsButton);
+        
+        // Add an empty JLabel to fill the layout space
+        frame.add(new JLabel(""));
+
+        // Make the frame visible
+        frame.setVisible(true);
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

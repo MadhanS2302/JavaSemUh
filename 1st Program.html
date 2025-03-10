@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Program Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: String Extraction</h2>
+    <pre>
+        <code>
+import java.util.Scanner;
+public class StringExtractionApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Get the full string from the user
+        System.out.print("Enter the original string: ");
+        String originalString = scanner.nextLine();
+        // Get the starting index
+        System.out.print("Enter the starting index (0-based): ");
+        int startIndex = scanner.nextInt();
+        // Get the ending index
+        System.out.print("Enter the ending index (exclusive): ");
+        int endIndex = scanner.nextInt();
+        // Validate indices
+        if (startIndex < 0 || endIndex > originalString.length() || startIndex >= endIndex) {
+            System.out.println("Invalid indices. Please make sure 0 <= startIndex < endIndex <= string length.");
+        } else {
+            // Extract the substring
+            String extractedString = originalString.substring(startIndex, endIndex);
+            // Print the extracted string
+            System.out.println("Extracted portion of the string: " + extractedString);
+        }
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

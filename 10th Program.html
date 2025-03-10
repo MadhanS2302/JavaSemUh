@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Mouse Event Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: Mouse Event Example</h2>
+    <pre>
+        <code>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MouseEventExample extends JFrame implements MouseListener {
+    private JLabel label;
+
+    // Constructor to set up the frame and components
+    public MouseEventExample() {
+        // Set up the frame
+        setTitle("Mouse Event Example");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null); // No layout manager
+
+        // Label to display messages
+        label = new JLabel("Perform a mouse action!");
+        label.setBounds(100, 100, 200, 50); // Position and size
+        add(label);
+
+        // Add mouse listener to the frame
+        addMouseListener(this);
+
+        // Make the frame visible
+        setVisible(true);
+    }
+
+    // Mouse event handlers
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        label.setText("Mouse clicked at (" + e.getX() + ", " + e.getY() + ")");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        label.setText("Mouse pressed at (" + e.getX() + ", " + e.getY() + ")");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        label.setText("Mouse released at (" + e.getX() + ", " + e.getY() + ")");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        label.setText("Mouse entered the frame");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        label.setText("Mouse exited the frame");
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        new MouseEventExample();
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

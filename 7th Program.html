@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Multiple Selection List Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: Multiple Selection List Box</h2>
+    <pre>
+        <code>
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MultipleSelectionListBox {
+    public static void main(String[] args) {
+        // Create the main JFrame
+        JFrame frame = new JFrame("Multiple Selection List Box Demo");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+        frame.setLayout(new BorderLayout());
+
+        // Create a label for instructions
+        JLabel label = new JLabel("Select your favorite programming languages:");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+
+        // Create a list of items for selection
+        String[] languages = {"Java", "Python", "C++", "JavaScript", "Ruby", "Kotlin", "Swift"};
+        JList<String> list = new JList<>(languages);
+        list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+        // Add the list to a scroll pane
+        JScrollPane scrollPane = new JScrollPane(list);
+
+        // Create a button to show the selected items
+        JButton button = new JButton("Show Selection");
+
+        // Create a text area to display the selected items
+        JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+
+        // Add an ActionListener to the button
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get the selected items from the list
+                java.util.List<String> selectedItems = list.getSelectedValuesList();
+
+                // Display the selected items in the text area
+                if (selectedItems.isEmpty()) {
+                    textArea.setText("No items selected.");
+                } else {
+                    textArea.setText("Selected items:\n" + String.join(", ", selectedItems));
+                }
+            }
+        });
+
+        // Add components to the frame
+        frame.add(label, BorderLayout.NORTH);
+        frame.add(scrollPane, BorderLayout.CENTER);
+        frame.add(button, BorderLayout.SOUTH);
+        frame.add(textArea, BorderLayout.EAST);
+
+        // Make the frame visible
+        frame.setVisible(true);
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

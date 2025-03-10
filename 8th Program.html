@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java User Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: User Details Form</h2>
+    <pre>
+        <code>
+import javax.swing.*;
+import java.awt.*;
+
+public class UserDetailsFrame {
+    public static void main(String[] args) {
+        // Create the main JFrame
+        JFrame frame = new JFrame("User Details Form");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+        frame.setLayout(new GridLayout(5, 2, 10, 10)); // 5 rows, 2 columns, with spacing
+
+        // Create labels and text fields
+        JLabel nameLabel = new JLabel("Name:");
+        JTextField nameField = new JTextField();
+        JLabel ageLabel = new JLabel("Age:");
+        JTextField ageField = new JTextField();
+        JLabel qualificationLabel = new JLabel("Qualification:");
+        JTextField qualificationField = new JTextField();
+        JLabel addressLabel = new JLabel("Address:");
+        JTextArea addressField = new JTextArea(3, 20); // Multi-line text area
+        addressField.setLineWrap(true);
+        addressField.setWrapStyleWord(true);
+
+        // Add components to the frame
+        frame.add(nameLabel);
+        frame.add(nameField);
+        frame.add(ageLabel);
+        frame.add(ageField);
+        frame.add(qualificationLabel);
+        frame.add(qualificationField);
+        frame.add(addressLabel);
+        JScrollPane scrollPane = new JScrollPane(addressField); // Add scroll functionality
+        frame.add(scrollPane);
+
+        // Add a submit button at the bottom
+        JButton submitButton = new JButton("Submit");
+        frame.add(new JLabel()); // Empty label for spacing
+        frame.add(submitButton);
+
+        // Display the frame
+        frame.setVisible(true);
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

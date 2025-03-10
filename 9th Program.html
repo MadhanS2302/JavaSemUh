@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Menu Bar Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: Menu Bar Example</h2>
+    <pre>
+        <code>
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MenuBarExample {
+    public static void main(String[] args) {
+        // Create the main frame
+        JFrame frame = new JFrame("Menu Bar Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+
+        // Create the menu bar
+        JMenuBar menuBar = new JMenuBar();
+
+        // Create the File menu and add items
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem newItem = new JMenuItem("New");
+        JMenuItem openItem = new JMenuItem("Open");
+        JMenuItem saveItem = new JMenuItem("Save");
+        JMenuItem exitItem = new JMenuItem("Exit");
+
+        // Add menu items to the File menu
+        fileMenu.add(newItem);
+        fileMenu.add(openItem);
+        fileMenu.add(saveItem);
+        fileMenu.addSeparator(); // Adds a separator line
+        fileMenu.add(exitItem);
+
+        // Create the Edit menu and add items
+        JMenu editMenu = new JMenu("Edit");
+        JMenuItem cutItem = new JMenuItem("Cut");
+        JMenuItem copyItem = new JMenuItem("Copy");
+        JMenuItem pasteItem = new JMenuItem("Paste");
+
+        // Add menu items to the Edit menu
+        editMenu.add(cutItem);
+        editMenu.add(copyItem);
+        editMenu.add(pasteItem);
+
+        // Create the Help menu and add items
+        JMenu helpMenu = new JMenu("Help");
+        JMenuItem aboutItem = new JMenuItem("About");
+
+        // Add menu items to the Help menu
+        helpMenu.add(aboutItem);
+
+        // Add menus to the menu bar
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(helpMenu);
+
+        // Add action listeners to menu items
+        exitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0); // Exit the application when "Exit" is clicked
+            }
+        });
+
+        aboutItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame, "Menu Bar Example v1.0", "About",
+                JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        // Set the menu bar for the frame
+        frame.setJMenuBar(menuBar);
+
+        // Make the frame visible
+        frame.setVisible(true);
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

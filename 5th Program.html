@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Shape Drawer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: Shape Drawer</h2>
+    <pre>
+        <code>
+import javax.swing.*;
+import java.awt.*;
+
+public class ShapeDrawer extends JPanel {
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // Set background color
+        setBackground(Color.WHITE);
+        
+        // Draw a rectangle
+        g.setColor(Color.BLUE);
+        g.fillRect(50, 50, 150, 100);
+        
+        // Draw an oval
+        g.setColor(Color.RED);
+        g.fillOval(250, 50, 150, 100);
+        
+        // Draw a line
+        g.setColor(Color.BLACK);
+        g.drawLine(50, 200, 400, 200);
+        
+        // Draw a polygon (triangle)
+        g.setColor(Color.GREEN);
+        int[] xPoints = {100, 150, 50};
+        int[] yPoints = {300, 400, 400};
+        g.fillPolygon(xPoints, yPoints, 3);
+        
+        // Draw a circle
+        g.setColor(Color.MAGENTA);
+        g.fillOval(300, 250, 100, 100);
+        
+        // Draw a rounded rectangle
+        g.setColor(Color.ORANGE);
+        g.fillRoundRect(50, 450, 200, 100, 30, 30);
+    }
+
+    public static void main(String[] args) {
+        // Create a JFrame (window)
+        JFrame frame = new JFrame("Shape Drawer");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 600);
+        
+        // Add the ShapeDrawer panel to the frame
+        ShapeDrawer shapes = new ShapeDrawer();
+        frame.add(shapes);
+        
+        // Make the window visible
+        frame.setVisible(true);
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

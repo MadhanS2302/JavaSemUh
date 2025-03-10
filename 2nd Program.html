@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Multiple Inheritance Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: Multiple Inheritance Using Interfaces</h2>
+    <pre>
+        <code>
+public interface InterfaceA {
+    void methodA(); // Abstract method declaration
+}
+
+// Define the second interface
+public interface InterfaceB {
+    void methodB(); // Abstract method declaration
+}
+
+// Implement both interfaces in a single class
+public class MultipleInheritanceDemo implements InterfaceA, InterfaceB {
+    // Provide implementation for methodA
+    @Override
+    public void methodA() {
+        System.out.println("Method A from InterfaceA is implemented.");
+    }
+
+    // Provide implementation for methodB
+    @Override
+    public void methodB() {
+        System.out.println("Method B from InterfaceB is implemented.");
+    }
+}
+
+// Main class to test the implementation
+public class MultipleInheritanceExample {
+    public static void main(String[] args) {
+        MultipleInheritanceDemo demo = new MultipleInheritanceDemo();
+        // Call methods from both interfaces
+        demo.methodA();
+        demo.methodB();
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>

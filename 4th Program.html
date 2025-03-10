@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Multithreading Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Java Program: Multithreading with Priorities</h2>
+    <pre>
+        <code>
+class TableThread extends Thread {
+    private int number; // Number for which multiplication table is printed
+
+    // Constructor to initialize the number
+    public TableThread(int number) {
+        this.number = number;
+    }
+
+    // Run method to execute the thread
+    public void run() {
+        // Printing the multiplication table for the given number
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+            try {
+                Thread.sleep(500); // Adding a small delay for better readability
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class ThreadPriorityExample {
+    public static void main(String[] args) {
+        // Creating three threads for multiplication tables of 2, 5, and 8
+        TableThread thread1 = new TableThread(2);
+        TableThread thread2 = new TableThread(5);
+        TableThread thread3 = new TableThread(8);
+
+        thread1.setPriority(Thread.MIN_PRIORITY); // Lowest priority (1)
+        thread2.setPriority(Thread.NORM_PRIORITY); // Default priority (5)
+        thread3.setPriority(Thread.MAX_PRIORITY); // Highest priority (10)
+
+        // Starting the threads
+        thread1.start();
+        thread2.start();
+        thread3.start();
+    }
+}
+        </code>
+    </pre>
+
+</body>
+</html>
